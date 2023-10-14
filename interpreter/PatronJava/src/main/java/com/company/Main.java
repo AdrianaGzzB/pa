@@ -28,9 +28,6 @@ import com.company.behavioral.observer.Semaforo;
 import com.company.behavioral.status.MobileAlertStateContext;
 import com.company.behavioral.status.Silent;
 import com.company.behavioral.status.Vibration;
-import com.company.behavioral.strategy.CapitalStrategyTextFormatter;
-import com.company.behavioral.strategy.Context;
-import com.company.behavioral.strategy.LoverStrategyTestFormatter;
 import com.company.creational.abstractFactory.AbstractFactory;
 import com.company.creational.abstractFactory.Card;
 import com.company.creational.abstractFactory.FactoryProvider;
@@ -58,18 +55,9 @@ public class Main {
         //testMemento();
         //testObserver();
         //testState();
-        //testInterpreter();
-        testStrategy();
+        testInterpreter();
 
 
-    }
-
-    private static void testStrategy() {
-        Context context = new Context( new CapitalStrategyTextFormatter());
-        context.publishText("Este texto sera convertido a MAYUSCULAS a través del algoritmo");
-
-        context = new Context(new LoverStrategyTestFormatter());
-        context.publishText("Este texto SERA CONVERTIDO a MINUSCULAS a través del algoritmo");
     }
 
     private static void testInterpreter() {

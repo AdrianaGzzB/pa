@@ -7,10 +7,6 @@ import com.company.behavioral.command.CreditCard;
 import com.company.behavioral.command.CreditCardActivateCommand;
 import com.company.behavioral.command.CreditCardDesactivateCommand;
 import com.company.behavioral.command.CreditCardInvoker;
-import com.company.behavioral.interpreter.AnExpression;
-import com.company.behavioral.interpreter.Expression;
-import com.company.behavioral.interpreter.OrExpression;
-import com.company.behavioral.interpreter.TerminalExpression;
 import com.company.behavioral.iterator.CardIterator;
 import com.company.behavioral.iterator.CardList;
 import com.company.behavioral.iterator.Iterator;
@@ -28,9 +24,6 @@ import com.company.behavioral.observer.Semaforo;
 import com.company.behavioral.status.MobileAlertStateContext;
 import com.company.behavioral.status.Silent;
 import com.company.behavioral.status.Vibration;
-import com.company.behavioral.strategy.CapitalStrategyTextFormatter;
-import com.company.behavioral.strategy.Context;
-import com.company.behavioral.strategy.LoverStrategyTestFormatter;
 import com.company.creational.abstractFactory.AbstractFactory;
 import com.company.creational.abstractFactory.Card;
 import com.company.creational.abstractFactory.FactoryProvider;
@@ -57,33 +50,7 @@ public class Main {
         //testmediator();
         //testMemento();
         //testObserver();
-        //testState();
-        //testInterpreter();
-        testStrategy();
-
-
-    }
-
-    private static void testStrategy() {
-        Context context = new Context( new CapitalStrategyTextFormatter());
-        context.publishText("Este texto sera convertido a MAYUSCULAS a través del algoritmo");
-
-        context = new Context(new LoverStrategyTestFormatter());
-        context.publishText("Este texto SERA CONVERTIDO a MINUSCULAS a través del algoritmo");
-    }
-
-    private static void testInterpreter() {
-        Expression cero = new TerminalExpression("0");
-        Expression uno = new TerminalExpression("1");
-
-        Expression containBoolean = new OrExpression(cero, uno);
-        Expression containOneAndCero = new AnExpression(cero, uno);
-
-        System.out.println(containBoolean.interpret("cero"));
-        System.out.println(containBoolean.interpret("0"));
-
-        System.out.println(containOneAndCero.interpret("0"));
-        System.out.println(containOneAndCero.interpret("0,1"));
+        testState();
 
     }
 
