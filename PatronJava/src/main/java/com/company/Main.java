@@ -31,6 +31,9 @@ import com.company.behavioral.status.Vibration;
 import com.company.behavioral.strategy.CapitalStrategyTextFormatter;
 import com.company.behavioral.strategy.Context;
 import com.company.behavioral.strategy.LoverStrategyTestFormatter;
+import com.company.behavioral.templatemethod.Paypa;
+import com.company.behavioral.templatemethod.Visa;
+import com.company.behavioral.visitor.*;
 import com.company.creational.abstractFactory.AbstractFactory;
 import com.company.creational.abstractFactory.Card;
 import com.company.creational.abstractFactory.FactoryProvider;
@@ -59,9 +62,25 @@ public class Main {
         //testObserver();
         //testState();
         //testInterpreter();
-        testStrategy();
+        //testStrategy();
+        //testTemplateMethod();
+        testVisitor();
 
+    }
 
+    private static void testVisitor() {
+        OfertaElement ofertaElement = new OfertaGasolina();
+        ofertaElement.accept(new BlackCreditCardVisitor());
+        ofertaElement = new OfertaVuelos();
+        ofertaElement.accept(new ClassicCreditCardVisitor());
+    }
+
+    private static void testTemplateMethod() {
+        com.company.behavioral.templatemethod.Payment payment = new Visa();
+        payment.makePayment();
+
+        payment = new Paypa();
+        payment.makePayment();
     }
 
     private static void testStrategy() {

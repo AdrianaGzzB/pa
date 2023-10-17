@@ -1,2 +1,6 @@
-package com.company.structural.adapter;public class Secure {
+package com.company.structural.adapter;
+
+public interface Secure {
+    void payWithSecureLevelA();
+    void payWithSecureLevelZ();
 }
